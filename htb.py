@@ -2,6 +2,7 @@ import pandas as pd
 from tabulate import tabulate
 from sklearn.model_selection import train_test_split
 
+
 pd.options.display.max_rows = 999
 pd.options.display.max_columns = 999
 train = pd.read_csv('data/train.csv', index_col='Id')
