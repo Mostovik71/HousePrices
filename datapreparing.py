@@ -22,10 +22,20 @@ train.drop(['MSZoning', 'Street', 'LandContour', 'PavedDrive', '3SsnPorch',
 train.drop(['LotShape', 'LotConfig', 'EnclosedPorch', 'SaleType', 'SaleCondition',
             'Condition1', 'BldgType', 'RoofStyle', 'ExterCond', 'BsmtFinType2'], inplace=True, axis=1) #A lot of values, but probably benefit
 train.drop(['WoodDeckSF', 'OpenPorchSF'], inplace=True, axis=1) #MAYBE, MAYBE
-print(tabulate(train.head(), headers='keys'))
-print(train.shape) #40 columns
 
+test.drop(['MSZoning', 'Street', 'LandContour', 'PavedDrive', '3SsnPorch',
+            'Utilities', 'LandSlope', 'Condition2', 'RoofMatl', 'BsmtCond',
+            'BsmtFinSF2', 'Heating', 'CentralAir', 'Electrical', 'LowQualFinSF',
+            'KitchenAbvGr', 'Functional', 'GarageQual', 'GarageCond', 'ScreenPorch',
+            'PoolArea', 'MiscVal'], inplace=True, axis=1) #A lot of same values
+test.drop(['LotShape', 'LotConfig', 'EnclosedPorch', 'SaleType', 'SaleCondition',
+            'Condition1', 'BldgType', 'RoofStyle', 'ExterCond', 'BsmtFinType2'], inplace=True, axis=1) #A lot of values, but probably benefit
+test.drop(['WoodDeckSF', 'OpenPorchSF'], inplace=True, axis=1)
+#print(tabulate(train.head(), headers='keys'))
+#print(train.shape) #40 columns
 
+train.to_csv('train(upd).csv')
+test.to_csv('test(upd).csv')
 # x = train
 # X_train, x_val, y_train, y_val = train_test_split(x, y, random_state=42, train_size=0.8)
 # cat_only = X_train.select_dtypes(include=['object'])
